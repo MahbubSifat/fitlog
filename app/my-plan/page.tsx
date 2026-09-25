@@ -66,14 +66,12 @@ export default function MyPlanPage() {
         Cap of five lifts for today. Finish them, then load more.
       </p>
 
-      {/* Metrics summary */}
       <div className="bg-[#0d0f14] rounded-2xl grid grid-cols-3 divide-x divide-white/10 mb-8">
         <Stat label="Exercises" value={exercises} accent />
         <Stat label="Minutes" value={minutes} />
         <Stat label="Calories" value={calories} />
       </div>
 
-      {/* Tabs + Sort */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
         <div className="bg-[#0d0f14] rounded-full p-1 flex gap-1">
           <TabButton active={tab === "today"} onClick={() => setTab("today")}>
@@ -104,7 +102,6 @@ export default function MyPlanPage() {
         </div>
       </div>
 
-      {/* List */}
       {!mounted ? (
         <p className="text-center text-gray-500 py-16">Loading workouts…</p>
       ) : sortedList.length === 0 ? (
@@ -136,10 +133,10 @@ function Stat({
   accent?: boolean;
 }) {
   return (
-    <div className="px-6 py-5">
+    <div className="px-3 sm:px-6 py-5">
       <p className="text-gray-500 text-xs mb-1">{label}</p>
       <p
-        className={`text-3xl font-bold ${
+        className={`text-2xl sm:text-3xl font-bold ${
           accent ? "text-[#ccff00]" : "text-white"
         }`}
       >
@@ -172,7 +169,7 @@ function TabButton({
 
 function EmptyState() {
   return (
-    <div className="bg-white/5 rounded-2xl py-20 text-center">
+    <div className="bg-white/5 rounded-2xl py-20 text-center px-4">
       <h3 className="uppercase font-bold text-lg mb-2">Nothing Here Yet</h3>
       <p className="text-gray-500 text-sm mb-6">
         Browse the library and add a lift to get today moving.
@@ -202,41 +199,43 @@ function PlanCard({
 
   return (
     <div
-      className={`bg-[#0d0f14] rounded-xl flex items-center gap-4 p-4 ${
+      className={`bg-[#0d0f14] rounded-xl p-4 flex flex-col sm:flex-row sm:items-center gap-4 ${
         done ? "opacity-50" : ""
       }`}
     >
-      <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0">
-        <Image
-          src={workout.image}
-          alt={workout.name}
-          fill
-          className="object-cover"
-        />
-      </div>
+      <div className="flex items-center gap-4 flex-1 min-w-0">
+        <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0">
+          <Image
+            src={workout.image}
+            alt={workout.name}
+            fill
+            className="object-cover"
+          />
+        </div>
 
-      <div className="flex-1 min-w-0">
-        <h4 className="text-white font-bold uppercase text-sm truncate">
-          {workout.name}
-        </h4>
-        <p className="text-gray-500 text-xs mb-1">{workout.equipment}</p>
-        <div className="flex items-center gap-3 text-gray-400 text-xs">
-          <span className="flex items-center gap-1">
-            <Clock size={12} className="text-[#ccff00]" />
-            {workout.duration} min
-          </span>
-          <span className="flex items-center gap-1">
-            <Flame size={12} className="text-[#ccff00]" />
-            {workout.caloriesBurned} kcal
-          </span>
-          <span className="flex items-center gap-1">
-            <Star size={12} className="text-[#ccff00]" />
-            {workout.rating}
-          </span>
+        <div className="flex-1 min-w-0">
+          <h4 className="text-white font-bold uppercase text-sm truncate">
+            {workout.name}
+          </h4>
+          <p className="text-gray-500 text-xs mb-1">{workout.equipment}</p>
+          <div className="flex items-center gap-3 text-gray-400 text-xs">
+            <span className="flex items-center gap-1">
+              <Clock size={12} className="text-[#ccff00]" />
+              {workout.duration} min
+            </span>
+            <span className="flex items-center gap-1">
+              <Flame size={12} className="text-[#ccff00]" />
+              {workout.caloriesBurned} kcal
+            </span>
+            <span className="flex items-center gap-1">
+              <Star size={12} className="text-[#ccff00]" />
+              {workout.rating}
+            </span>
+          </div>
         </div>
       </div>
 
-      <div className="flex items-center gap-2 shrink-0">
+      <div className="flex flex-wrap items-center gap-2 sm:shrink-0">
         <Link
           href={`/workout/${workout.id}`}
           className="text-sm font-semibold border border-white/10 text-white px-4 py-2 rounded-md hover:bg-white/5 transition"
