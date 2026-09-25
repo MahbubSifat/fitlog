@@ -15,11 +15,11 @@ export default function Navbar() {
   const { todaysPlan, saved } = usePlan();
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-black border-b border-white/10">
       <nav className="mx-auto max-w-7xl flex items-center justify-between px-3 sm:px-6 lg:px-8 h-16 gap-2">
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image src="/logo.png" alt="FitLog logo" width={28} height={28} />
-          <span className="hidden sm:inline text-gray-900 font-bold tracking-wide text-lg">
+          <span className="hidden sm:inline text-white font-bold tracking-wide text-lg">
             FITLOG
           </span>
         </Link>
@@ -33,8 +33,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-xs sm:text-sm font-semibold pb-1 transition-colors ${
                   isActive
-                    ? "text-black border-b-2 border-[#ccff00]"
-                    : "text-gray-500 hover:text-gray-900"
+                    ? "text-white border-b-2 border-[#ccff00]"
+                    : "text-gray-400 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -52,7 +52,7 @@ export default function Navbar() {
           </Link>
           <Link
             href="/my-plan"
-            className="rounded-full border border-gray-300 text-gray-700 text-[10px] sm:text-xs font-bold px-2 py-1 sm:px-3 sm:py-1.5 whitespace-nowrap"
+            className="rounded-full border border-white/20 text-gray-300 text-[10px] sm:text-xs font-bold px-2 py-1 sm:px-3 sm:py-1.5 whitespace-nowrap"
           >
             Saved {saved.length}
           </Link>

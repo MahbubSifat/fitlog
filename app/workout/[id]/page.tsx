@@ -71,7 +71,6 @@ export default function WorkoutDetailsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
-      {/* Left: image */}
       <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
         <Image
           src={workout.image}
@@ -82,7 +81,6 @@ export default function WorkoutDetailsPage() {
         />
       </div>
 
-      {/* Right: details */}
       <div>
         <h1
           className="uppercase text-3xl sm:text-4xl font-bold mb-3"
@@ -90,7 +88,7 @@ export default function WorkoutDetailsPage() {
         >
           {workout.name}
         </h1>
-        <p className="text-gray-500 mb-4">{workout.description}</p>
+        <p className="text-gray-400 mb-4">{workout.description}</p>
 
         <div className="flex gap-2 mb-6">
           {workout.muscleGroups.map((tag) => (
@@ -120,7 +118,7 @@ export default function WorkoutDetailsPage() {
         </div>
 
         <h2 className="font-bold uppercase text-sm mb-3">Instructions</h2>
-        <ol className="space-y-2 mb-8 text-gray-600 text-sm list-decimal list-inside">
+        <ol className="space-y-2 mb-8 text-gray-400 text-sm list-decimal list-inside">
           {workout.instructions.map((step, i) => (
             <li key={i}>{step}</li>
           ))}
@@ -139,7 +137,7 @@ export default function WorkoutDetailsPage() {
           <button
             onClick={handleSave}
             disabled={alreadySaved}
-            className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 font-bold text-sm px-6 py-3 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition"
+            className="inline-flex items-center gap-2 border border-white/20 text-gray-300 font-bold text-sm px-6 py-3 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white/5 transition"
           >
             {alreadySaved ? <BookmarkCheck size={16} /> : <Bookmark size={16} />}
             {alreadySaved ? "Saved" : "Save for later"}
