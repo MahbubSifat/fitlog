@@ -32,3 +32,17 @@ in the browser.
 6. **Fully Responsive** — usable layout across mobile, tablet, and
    desktop breakpoints.
 7. **Custom 404 Page** — friendly not-found page for any invalid route.
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Live Demo
+
+- Live Link: https://fitlog-two-self.vercel.app/
+- GitHub Repository: https://github.com/MahbubSifat/fitlog
